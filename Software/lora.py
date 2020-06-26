@@ -17,20 +17,22 @@ with open('config.json') as f:
 # United States = LoRa.US915
 lora = LoRa(mode=LoRa.LORAWAN, region=LoRa.EU868)
 
-print("DevEUI: " + ubinascii.hexlify(lora.mac()).decode('utf-8').upper())
+#print("DevEUI: " + ubinascii.hexlify(lora.mac()).decode('utf-8').upper())
 
 # create an OTAA authentication parameters
 
 app_eui = ubinascii.unhexlify(config['APP_EUI']) ## app key
 app_key = ubinascii.unhexlify(config['APP_KEY'])
 
+
 def connect_lora():
     # join a network using OTAA (Over the Air Activation)
     lora.join(activation=LoRa.OTAA, auth=(app_eui, app_key), timeout=0)
+
     while not lora.has_joined():
         print('Not yet joined...')
         pycom.rgbled(0xcc00ff)
-        time.sleep(3)
+        time.sleep(2)
         pycom.rgbled(0x000000)
         time.sleep(0.5)
 
@@ -46,4 +48,6 @@ def connect_lora():
     s = socket.socket(socket.AF_LORA, socket.SOCK_RAW)
 
     # set the LoRaWAN data rate
-    s.setsockopt(socket.SOL_LORA, socket.SO_DR, 2)
+    s.setsockopt(socket.SOL_LORA, socket.SO_DR, 0)
+
+    #s.setblocking(False)
