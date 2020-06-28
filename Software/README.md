@@ -64,11 +64,11 @@
 
 ###### 4: Open Atom and press "ctrl+shift+A" (Add project folder) and navigate to the folder were you downloaded this project. Select the folder "Software"
 
-###### 6: The File config.json contains the necessary keys for LoRa communication, add your keys from The Things Network here.
+###### 6: The File [config.json](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/config.json) contains the necessary keys for LoRa communication, add your keys from The Things Network here.
 
 ###### 7: Press "ctrl+alt+S" (Upload project to device) to program the device.
 
-###### 8: It should now be connected to The Things Network and be sending the measured temperature through LoRa too the TTN console.
+###### 8: It should now be connected to The Things Network and sending the measured temperature through LoRa too the TTN console. 
 
 
 
