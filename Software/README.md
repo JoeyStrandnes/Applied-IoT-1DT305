@@ -72,6 +72,22 @@
 
 
 
+#### Electrical connections
+
+###### This section describes the electrical connections necessary to complete this project.
+
+###### The Temperature sensor has three connections VCC, GND and OUPUT.
+
+##### Temperature sensor connections
+
+- VCC connects to 3V3 or 5V DC
+
+- GND connects to ground
+
+- OUTPUT should be connected to an analog pin of the LOPY4 device. Pin "P16" is used in this case
+
+  LOPY4 connections
+
 
 
 
