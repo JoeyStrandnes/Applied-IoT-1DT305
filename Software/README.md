@@ -139,15 +139,17 @@ function Decoder(bytes, port) {
 
 
 
-##### 1: The Things Network: Integration
+##### 2: The Things Network: Integration
+
+###### Create an account on the [Ubidots](https://www.Ubidots.com  ) platform and copy the token from "API Credentials". Head over to [The Things Network](https://console.thethingsnetwork.org/) and go to the page "Integrations", press the button "add integrations"  on the right side of the page and select "Ubidots". Paste the Ubidots token in the field "Ubidots Token".
 
 
 
+##### 3: Ubidots: Dashboard setup
 
+###### Click on the dashboard dropdown and select "Add new widget", located in the top right corner. Select the Line chart option. Press the "add variable" button and a variable named "temperature" should appear, select it. Scroll down to the Y-axis options, write "Degrees Celsius" as the Y-Axis name and add 100 as the max value on the Y-Axis, min value can remain on auto. Press the green checkmark and the line chart should appear. It should look like the image below.
 
-
-
-
+![Temperature Graph](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Project%20Images/Temperature%20Graph-2.png?raw=true)
 
 
 
