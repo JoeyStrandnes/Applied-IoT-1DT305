@@ -100,7 +100,7 @@
 
 ##### Below is the electrical connection. The schematic was drawn in Autodesk Eagle and can be found under "[Electrical](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Electrical)" in the root directory. The temperature sensor has internal current limiting so no external components are necessary. A capacitor for the LOPY4 VCC is generally good practice to prevent unstable power rails during transmission. The recommended value is 10µF, 16V and preferably X7R temperature coefficient. 
 
-![https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Project%20Images/Connections-Zoomed.png?raw=true]()
+![Schematic](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Connections-Zoomed.png))
 
 
 
@@ -110,7 +110,9 @@
 
 
 
+#### Platform
 
+###### This section will describe the platform used to handle the data from the sensor/LOPY4 device.
 
 
 
