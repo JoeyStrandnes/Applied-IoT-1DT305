@@ -1,4 +1,4 @@
-## Analog Temperature sensor tutorial
+# Analog Temperature sensor tutorial
 
 ###### This guide will show how to connect and utilize Microchip's MCP9700T analog temperature sensor with LoRaWAN, The Things Network (TTN) and Ubidots dashboard. This project is easy to setup and will take an evening to complete. Created by Joseph Strandnes (JS225PY).
 
@@ -112,13 +112,34 @@
 
 #### Platform
 
-###### This section will describe the platform used to handle the data from the sensor/LOPY4 device.
+###### This section will describe the platform used to handle the data from the sensor/LOPY4 device. This code uses LoRaWAN over The Things Network combined with Ubidots to display the data on a dashboard. This solution is entirely based on cloud application so no local installation/configuration is needed!
+
+1. The Things Network: Payload Format
+
+2. The Things Network: Integration
+
+3. Ubidots: Dashboard setup
+
+   
+
+##### 1: The Things Network: Payload Format
+
+LoRa physical is limited to byte size packets of data, the ADC measurements of the ESP32 are 12-bit witch results in an actual memory allocation of 2 bytes (16-bit). The LOPY4 "splits" the data into two bytes and send them one after another. The "Payload Formatter" allows us to format the incoming data, in this case it is stick thing data back into one 16-bit variable. Below is the code snippet used to stitch the two bytes together and output it as one variable called "Temperature", the value is divided by 10 to compensate for the times 10 multiplication in the LOPY4.This is done to get 1 decimal of accuracy.
+
+```js
+function Decoder(bytes, port) {
+
+  var Temp = (bytes[0] | bytes[1])
+  
+  return {
+    Temperature: Temp/10,
+  }
+}
+```
 
 
 
-
-
-
+##### 1: The Things Network: Integration
 
 
 
