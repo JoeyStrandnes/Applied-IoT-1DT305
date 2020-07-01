@@ -228,13 +228,17 @@ while True:
 
 ### Transmitting the data / connectivity
 
-###### The data is transmitted over LoRaWAN to The Things Network. The data is transmitted every 25 seconds in order to minimize the amount of data and reduce the overall power draw of the system. The data rate was configured to the slowest bandwidth option (125kHz) to increase the transmission distance. The measurement data was split into two bytes since LoRa only support byte size packs, the ADC samples 12-bits that are stored in two bytes so the upper half of the 16-bit value was stored in a byte and the lower half is stored in another byte. Each bytes is transmitted separately, the upper byte transmitting first, shortly followed by the lower byte. The data (payload) is stitched back together at the server by storing the upper byte in a 16-bit variable and then "oring" the lower byte into the 16-bit variable, thus returning the measurement to its original form. 
+###### The data is transmitted over LoRaWAN to The Things Network. The data is transmitted every 25 seconds in order to minimize the amount of data and reduce the overall power draw of the system. The data rate was configured to the slowest bandwidth option (125kHz) to increase the transmission distance. The measurement data was split into two bytes since LoRa only support byte size packs, the ADC samples 12-bits that are stored in two bytes so the upper half of the 16-bit value was stored in a byte and the lower half is stored in another byte. Each bytes is transmitted separately, the upper byte transmitting first, shortly followed by the lower byte. The data (payload) is stitched back together at the server by storing the upper byte in a 16-bit variable and then "oring" the lower byte into the 16-bit variable, thus returning the measurement to its original form.  Below is the function to combine the two 8-bit values to one 16-bit value.
+
+```js
+var Temp = (bytes[0] | bytes[1])
+```
 
 
 
 ### Presenting the data
 
-###### The data is "funnelled" through Ubidots API integration on The Things Networks platform. The data is also stored for seven days at The Things Network and is accessed through a REST API by using HTTP GET request, the data is fetched by my website www.strandnes-embedded.com and displayed on a graph as temperature over time (This is a work in progress and not yet finished).
+###### The data is "funnelled" through Ubidots API integration on The Things Networks platform. The data is also stored for seven days at The Things Network and is accessed through a REST API by using HTTP GET request, the data is fetched by my website and displayed on a graph as temperature over time (This is a work in progress and not yet finished).
 
 ###### The data is displayed as single temperature reading and as a temperature over time graph on the Ubidots dashboard. The images below is during testing witch is the reason for static measurements and abrupt change of temperature.
 
@@ -249,6 +253,8 @@ while True:
 
 
 
+
+### Finalizing the design
 
 
 
