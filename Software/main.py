@@ -36,14 +36,14 @@ while True:
     #val = apin()
 
     #Test Value
-    val = 900
+    val = 910
 
     #Calculations for the temperature sensor
-    Temperature = (val*3300)/4096
+    Temperature = (val*3300)/4095
     Temperature -= T0
     Temperature /= Tc
 
-    #Multiply teh value by 10 to get a decimal accuracy of 0.1
+    #Multiply the value by 10 to get a decimal accuracy of 0.1
     Temperature *= 10           # remember to devide by 10 on reciveing end
 
     #Split the temperature measurement into two bytes (Upper and Lower)
@@ -53,4 +53,4 @@ while True:
     #Send the two bytes to the TTN server
     s.send(bytes([Upper, Lower]))
     #print(Temperature/10)
-    time.sleep(5)
+    time.sleep(25)
