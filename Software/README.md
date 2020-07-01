@@ -159,7 +159,7 @@ function Decoder(bytes, port) {
 
 ###### The code uses the [Pycom LoRa API](https://docs.pycom.io/firmwareapi/pycom/network/lora/) to handle the LoRaWAN integration. The integration is handled in the standalone files [lora.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/lora.py) and [config.json](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/config.json), config.json is only used to store the authentication keys for The Things Network. The code is located in the [Software folder](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Software) under the project root folder. The main code is located in [main.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/main.py) (also included below), the program is described in the flow chart below. 
 
-![Flow Chart](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Program-Diagram.png)
+![Flow Chart](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Project Images/Program-Diagram.png)
 
 
 
@@ -234,9 +234,11 @@ while True:
 
 ### Presenting the data
 
-###### The data is "funnelled" through Ubidots API integration on The Things Networks platform. 
+###### The data is "funnelled" through Ubidots API integration on The Things Networks platform. The data is also stored for seven days at The Things Network and is accessed through a REST API by using HTTP GET request, the data is fetched by my website www.strandnes-embedded.com and displayed on a graph as temperature over time (This is a work in progress and not yet finished).
 
+###### The data is displayed as single temperature reading and as a temperature over time graph on the Ubidots dashboard. The images below is during testing witch is the reason for static measurements and abrupt change of temperature.
 
+![Ubidots](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Complete-Temp.png)
 
 
 
