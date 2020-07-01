@@ -159,7 +159,7 @@ function Decoder(bytes, port) {
 
 ###### The code uses the [Pycom LoRa API](https://docs.pycom.io/firmwareapi/pycom/network/lora/) to handle the LoRaWAN integration. The integration is handled in the standalone files [lora.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/lora.py) and [config.json](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/config.json), config.json is only used to store the authentication keys for The Things Network. The code is located in the [Software folder](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Software) under the project root folder. The main code is located in [main.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/main.py) (also included below), the program is described in the flow chart below. 
 
-![Flow Chart](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Project Images/Program-Diagram.png)
+![Flow Chart](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Program-Diagram.png)
 
 
 
