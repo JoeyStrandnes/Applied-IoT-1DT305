@@ -157,7 +157,11 @@ function Decoder(bytes, port) {
 
 ### The Code
 
-###### The code uses the Pycom LoRa API to handle the LoRaWAN integration. The integration is handles in the standalone files [lora.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/lora.py) , [config.json](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/config.json) and [lora_callback.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/lora_callback.py).  Call-backs/downlink is not utilized in this project. The code is located in the [Software folder](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Software) under the project root folder. The main code is located in [main.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/main.py) (also included below), the code follows 
+###### The code uses the [Pycom LoRa API](https://docs.pycom.io/firmwareapi/pycom/network/lora/) to handle the LoRaWAN integration. The integration is handled in the standalone files [lora.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/lora.py) and [config.json](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/config.json), config.json is only used to store the authentication keys for The Things Network. The code is located in the [Software folder](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Software) under the project root folder. The main code is located in [main.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/main.py) (also included below), the program is described in the flow chart below. 
+
+![Flow Chart](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Program-Diagram.png)
+
+
 
 ```python
 #main.py
@@ -171,9 +175,9 @@ from machine import ADC
 #The sensor used in this project is MCP9700T-E
 #It is an cheap temperature sesnor with built in compensation and linearization
 #You can compensate for self heating of teh sensor but it is not used in this code.
-#Accurecy is +-2 degrees C
-#Volatge offset at 0 degrees C is 500mV
-#Temperature coefficient is 10mV/degree C
+#Accurecy is +-2°C
+#Volatge offset at 0°C is 500mV
+#Temperature coefficient is 10mV/°C
 
 #Function to calculate temperature: Vout = Tc * Ta * V0
 #Vout   = Volate output from sensor
