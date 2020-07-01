@@ -226,13 +226,15 @@ while True:
 
 
 
+### Transmitting the data / connectivity
+
+###### The data is transmitted over LoRaWAN to The Things Network. The data is transmitted every 25 seconds in order to minimize the amount of data and reduce the overall power draw of the system. The data rate was configured to the slowest bandwidth option (125kHz) to increase the transmission distance. The measurement data was split into two bytes since LoRa only support byte size packs, the ADC samples 12-bits that are stored in two bytes so the upper half of the 16-bit value was stored in a byte and the lower half is stored in another byte. Each bytes is transmitted separately, the upper byte transmitting first, shortly followed by the lower byte. The data (payload) is stitched back together at the server by storing the upper byte in a 16-bit variable and then "oring" the lower byte into the 16-bit variable, thus returning the measurement to its original form. 
 
 
 
+### Presenting the data
 
-
-
-
+###### The data is "funnelled" through Ubidots API integration on The Things Networks platform. 
 
 
 
