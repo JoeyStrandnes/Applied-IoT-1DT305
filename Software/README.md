@@ -256,7 +256,9 @@ var Temp = (bytes[0] | bytes[1])
 
 ### Finalizing the design
 
+###### The image below shows the final housing for the LoRa temperature transmitter. The housing was designed in SolidWorks 2019, printed on an FlashForge finder (FDM 3D-printer) and was printed from the plastic type PET. The design consists of three parts, the main housing, roof and a wall mount that attaches to the backside of the housing. It was designed to resemble a small birdhouse and have a lot of "breathing" so the bottom is a honeycomb mesh to allow the same temperature on the inside as the outside ambient temperature. It was not designed to be waterproof/resistant and should be mounted indoors only.   
 
+![Housing](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Final-Housing.jpg)
 
 
 
