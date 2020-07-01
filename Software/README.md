@@ -4,28 +4,28 @@
 
 
 
-#### Objective
+### Objective
 
 ###### The objective with the project was to familiarize with LoRa, a large portion of the project was setting up LoRa and waiting for the LoRa Gateway to arrive, there is no coverage in my area. The reason I wanted to setup a temperature sensor was because I wanted to monitor the temperature in a nearby shack. The shack is out of range of WIFI and I use the shack too store homebrewed beer during the fermentation process. 
 
 
 
-#### Materials
+### Materials
 
-##### Required
+#### Required
 
 1. LOPY4 with LoRa antenna
 2. Expansion board 3
 3. MCP9700T  temperature sensor
 4. Connection cables
 
-##### Optional
+#### Optional
 
 1. LoRa gateway
 2. 3D-printed case
 3. Battery with compatible connector
 
-##### Components description
+#### Components description
 
 ###### 1: LOPY4 is a development board based on the ESP32 IoT SoC. The processor has a RF-core for WIFI and Bluetooth, two system cores (dual core) a Ultra Low Power (ULP) co-processor with access to the ADC, memory and other peripherals. LOPY4 also includes "external" RF circuits for LoRa and Sigfox. All of this is on a small dev board. The cost for the LOPY4 + antenna is ~44€, they were purchase at pycom.io.
 
@@ -35,7 +35,7 @@
 
 ###### 4: The cables are meant to connect the external sensors to the dev board. They cost a few kr and can be purchased at most hobby stores.
 
-##### Optional components
+#### Optional components
 
 ###### 1: LoRa gateway functions as a router for LoRa and connects sensors via LoRa to the internet. The gateway I purchased is the Dragino LPS8 and costs ~900kr (Elfa). The gateway is a must have if you don't have coverage by the LoRa network/TTN.
 
@@ -45,11 +45,11 @@
 
 
 
-#### Computer setup
+### Computer setup
 
 ###### This section will describe the process of programming the LOPY4 device.
 
-##### Required programs
+#### Required programs
 
 - Pycom Flash Tool [Firmware Updates](https://pycom.io/downloads/).
 - [Atom IDE.](https://atom.io/)
@@ -72,13 +72,13 @@
 
 
 
-#### Electrical connections
+### Electrical connections
 
 ###### This section describes the electrical connections necessary to complete this project.
 
 ###### The Temperature sensor has three connections VCC, GND and OUPUT.
 
-##### Temperature sensor connections
+#### Temperature sensor connections
 
 - VCC connects to 3V3 or 5V DC
 
@@ -90,7 +90,7 @@
 
   
 
-##### LOPY4 connections
+#### LOPY4 connections
 
 - Connect VIN to 5V
 
@@ -110,9 +110,9 @@
 
 
 
-#### Platform
+### Platform
 
-###### This section will describe the platform used to handle the data from the sensor/LOPY4 device. This code uses LoRaWAN over The Things Network combined with Ubidots to display the data on a dashboard. This solution is entirely based on cloud application so no local installation/configuration is needed!
+###### This section will describe the platform used to handle the data from the sensor/LOPY4 device. This code uses LoRaWAN over The Things Network combined with Ubidots to display the data on a dashboard. This solution is entirely based on cloud application so no local installation/configuration is needed! The Things Network simplifies LoRaWAN extremely since it handles all the server related things and there are built in configuration in my LoRa Gateway. Ubidots has a lot of different display options and is perfect for this type of project.
 
 1. The Things Network: Payload Format
 
@@ -122,7 +122,7 @@
 
    
 
-##### 1: The Things Network: Payload Format
+#### 1: The Things Network: Payload Format
 
 LoRa physical is limited to byte size packets of data, the ADC measurements of the ESP32 are 12-bit witch results in an actual memory allocation of 2 bytes (16-bit). The LOPY4 "splits" the data into two bytes and send them one after another. The "Payload Formatter" allows us to format the incoming data, in this case it is stick thing data back into one 16-bit variable. Below is the code snippet used to stitch the two bytes together and output it as one variable called "Temperature", the value is divided by 10 to compensate for the times 10 multiplication in the LOPY4.This is done to get 1 decimal of accuracy.
 
@@ -139,13 +139,13 @@ function Decoder(bytes, port) {
 
 
 
-##### 2: The Things Network: Integration
+#### 2: The Things Network: Integration
 
 ###### Create an account on the [Ubidots](https://www.Ubidots.com  ) platform and copy the token from "API Credentials". Head over to [The Things Network](https://console.thethingsnetwork.org/) and go to the page "Integrations", press the button "add integrations"  on the right side of the page and select "Ubidots". Paste the Ubidots token in the field "Ubidots Token".
 
 
 
-##### 3: Ubidots: Dashboard setup
+#### 3: Ubidots: Dashboard setup
 
 ###### Click on the dashboard dropdown and select "Add new widget", located in the top right corner. Select the Line chart option. Press the "add variable" button and a variable named "temperature" should appear, select it. Scroll down to the Y-axis options, write "Degrees Celsius" as the Y-Axis name and add 100 as the max value on the Y-Axis, min value can remain on auto. Press the green checkmark and the line chart should appear. It should look like the image below.
 
