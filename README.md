@@ -27,21 +27,23 @@
 
 #### Components description
 
-###### 1: LOPY4 is a development board based on the ESP32 IoT SoC. The processor has a RF-core for WIFI and Bluetooth, two system cores (dual core) a Ultra Low Power (ULP) co-processor with access to the ADC, memory and other peripherals. LOPY4 also includes "external" RF circuits for LoRa and Sigfox. All of this is on a small dev board. The cost for the LOPY4 + antenna is ~44€, they were purchase at pycom.io.
+###### 1: LOPY4 is a development board based on the ESP32 IoT SoC. The processor has a RF-core for WIFI and Bluetooth, two system cores (dual core) a Ultra Low Power (ULP) co-processor with access to the ADC, memory and other peripherals. LOPY4 also includes "external" RF circuits for LoRa and Sigfox. The components are all placed on a small dev board. The cost for the LOPY4 + antenna is ~44€, which were purchase at pycom.io.
 
-###### 2: The Expansion board allows the user to program the LOPY4 and other PYCOM board. It also functions as a break out board for the processor modules. The cost for the expansion board is 16€, it was purchase at pycom.io.
+###### 2: The Expansion board allows the user to program the LOPY4 and other PYCOM board. It also functions as a break out board for the processor modules. The cost for the expansion board is 16€, which was purchase at pycom.io.
 
 ###### 3: The MCP9700T is a analog temperature senor with built in linearization making it easy to work with. The out of the box accuracy is +-2 degrees Celsius but can easily be compensated down to +-0.5 degrees Celsius. The cost of the sensor is ~1.7 kr, I owned it prior to the project but it can be purchased at DigiKey, Mouser, Elfa and all other online resellers.
 
 ###### 4: The cables are meant to connect the external sensors to the dev board. They cost a few kr and can be purchased at most hobby stores.
+###### 4: The cables are meant to connect the external sensors to the dev board. They cost a few kronor which can be purchased at most hobby stores.
 
 #### Optional components
 
-###### 1: LoRa gateway functions as a router for LoRa and connects sensors via LoRa to the internet. The gateway I purchased is the Dragino LPS8 and costs ~900kr (Elfa). The gateway is a must have if you don't have coverage by the LoRa network/TTN.
+###### 1: LoRa gateway functions as a router for LoRa and connects sensors via LoRa to the internet. The gateway I purchased is the Dragino LPS8 and costs ~900kr (Elfa). The gateway is a necessity if one lacks coverage from the LoRa network/TTN.
 
 ###### 2: 3D-Printed case, the case can be found in the project directory for this project and was designed in SolidWorks 2019. The case makes it easy to organize all the cables and gives the finished project a sleek design. The cost for the case is a few kr.
+###### 2: 3D-Printed case, the case can be found in this project directory and was designed in SolidWorks 2019. The case makes it easy to organize all the cables and gives the finished project a sleek design. The cost for the case is a few kronor.
 
-###### 3: The battery allows you to operate the LOPY4 remotely without any external power. The batter can be purchased at most hobby shops for <100kr. 
+###### 3: The battery allows you to operate the LOPY4 remotely without any external power. The battery can be purchased at most hobby shops for <100kronor. 
 
 
 
@@ -58,9 +60,9 @@
 
 ###### 1: Use the flash tool update to the latest firmware for the LOP4. This is done by running the program Firmware upgrader and following the simple instructions in the program. Make sure to select LoRa region as "EU868".
 
-###### 2: Install Atom, press "ctrl+," (control key and comma key at the same time) and press the "package" button on the left side of the screen. Type Pymkr in the search bar, wait for the Pymkr plugin to show up, make sure that it is released by Pycom (says creator name next to the logo). Press install and you should be set! 
+###### 2: Install Atom, press "ctrl+," (press control key and comma key simultaneously) and press the "package" button on the left side of the screen. Type Pymkr in the search bar, wait for the Pymkr plugin to show up, make sure that it is released by Pycom (says creator name next to the logo). Press install and you should be all set! 
 
-###### 3: Download the project files from this GitHub repository by ether pressing download on the GitHub page or by using the "Clone" command.
+###### 3: Download the project files from this GitHub repository by either pressing download on the GitHub page or by using the "Clone" command.
 
 ###### 4: Open Atom and press "ctrl+shift+A" (Add project folder) and navigate to the folder were you downloaded this project. Select the folder "Software"
 
@@ -248,11 +250,13 @@ var Temp = (bytes[0] | bytes[1])
 
 ### Finalizing the design
 
-###### The image below shows the final housing for the LoRa temperature transmitter. The housing was designed in SolidWorks 2019, printed on an FlashForge finder (FDM 3D-printer) and was printed from the plastic type PET. The design consists of three parts, the main housing, roof and a wall mount that attaches to the backside of the housing. It was designed to resemble a small birdhouse and have a lot of "breathing", the bottom is a open honeycomb mesh to allow the same temperature on the inside as the outside ambient temperature. It was not designed to be waterproof/resistant and should be mounted indoors only.   
+###### The image below shows the final housing for the LoRa temperature transmitter. The housing was designed in SolidWorks 2019, printed on an FlashForge finder (FDM 3D-printer) and was printed from the plastic type PET. The design consists of three parts, the main housing, roof and a wall mount that attaches to the backside of the housing. It was designed to resemble a small birdhouse and have a lot of "breathing" space, the bottom is a open honeycomb mesh to allow the same temperature on the inside as the outside ambient temperature. It was not designed to be waterproof/resistant and should be mounted indoors only.   
 
 ![Housing](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Final-Housing.jpg)
 
 ![SolidWorks](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Lopy4 house.png)
+
+
 
 
 
