@@ -260,7 +260,7 @@ var Temp = (bytes[0] | bytes[1])
 
 ![Housing](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Final-Housing.jpg)
 
-
+![SolidWorks](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Lopy4 house.png)
 
 
 
