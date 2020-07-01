@@ -98,7 +98,7 @@
 
   
 
-##### Below is the electrical connection. The schematic was drawn in Autodesk Eagle and can be found under "[Electrical](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Electrical)" in the root directory. The temperature sensor has internal current limiting so no external components are necessary. A capacitor for the LOPY4 VCC is generally good practice to prevent unstable power rails during transmission. The recommended value is 10µF, 16V and preferably X7R temperature coefficient. 
+###### Below is the electrical connection. The schematic was drawn in Autodesk Eagle and can be found under "[Electrical](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Electrical)" in the root directory. The temperature sensor has internal current limiting so no external components are necessary. A capacitor for the LOPY4 VCC is generally good practice to prevent unstable power rails during transmission. The recommended value is 10µF, 16V and preferably X7R temperature coefficient. 
 
 ![Schematic](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Connections-Zoomed.png)
 
@@ -124,7 +124,7 @@
 
 #### 1: The Things Network: Payload Format
 
-LoRa physical is limited to byte size packets of data, the ADC measurements of the ESP32 are 12-bit witch results in an actual memory allocation of 2 bytes (16-bit). The LOPY4 "splits" the data into two bytes and send them one after another. The "Payload Formatter" allows us to format the incoming data, in this case it is stick thing data back into one 16-bit variable. Below is the code snippet used to stitch the two bytes together and output it as one variable called "Temperature", the value is divided by 10 to compensate for the times 10 multiplication in the LOPY4.This is done to get 1 decimal of accuracy.
+LoRa physical is limited to byte size packets of data, the ADC measurements of the ESP32 are 12-bit witch results in an actual memory allocation of 2 bytes (16-bit). The LOPY4 "splits" the data into two bytes and send them one after another. The "Payload Formatter" allows us to format the incoming data, in this case it is stitching data back into one 16-bit variable. Below is the code that is used to stitch the two bytes together and output it as one variable called "Temperature", the value is divided by 10 to compensate for the times 10 multiplication in the LOPY4.This is done to get 1 decimal of accuracy.
 
 ```js
 function Decoder(bytes, port) {
@@ -157,7 +157,7 @@ function Decoder(bytes, port) {
 
 ### The Code
 
-###### The code uses the [Pycom LoRa API](https://docs.pycom.io/firmwareapi/pycom/network/lora/) to handle the LoRaWAN integration. The integration is handled in the standalone files [lora.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/lora.py) and [config.json](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/config.json), config.json is only used to store the authentication keys for The Things Network. The code is located in the [Software folder](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Software) under the project root folder. The main code is located in [main.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/main.py) (also included below), the program is described in the flow chart below. 
+###### The code uses the [Pycom LoRa API](https://docs.pycom.io/firmwareapi/pycom/network/lora/) to handle the LoRaWAN integration. The integration is handled in the standalone files [lora.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/lora.py) and [config.json](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/config.json), config.json is only used to store the authentication keys for The Things Network. All program code is located in the [Software folder](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/tree/master/Software) under the project root folder. The main code is located in [main.py](https://github.com/JoeyStrandnes/Applied-IoT-1DT305/blob/master/Software/main.py) (also included below), the program is described in the flow chart below. 
 
 ![Flow Chart](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Program-Diagram.png)
 
@@ -228,7 +228,7 @@ while True:
 
 ### Transmitting the data / connectivity
 
-###### The data is transmitted over LoRaWAN to The Things Network. The data is transmitted every 25 seconds in order to minimize the amount of data and reduce the overall power draw of the system. The data rate was configured to the slowest bandwidth option (125kHz) to increase the transmission distance. The measurement data was split into two bytes since LoRa only support byte size packs, the ADC samples 12-bits that are stored in two bytes so the upper half of the 16-bit value was stored in a byte and the lower half is stored in another byte. Each bytes is transmitted separately, the upper byte transmitting first, shortly followed by the lower byte. The data (payload) is stitched back together at the server by storing the upper byte in a 16-bit variable and then "oring" the lower byte into the 16-bit variable, thus returning the measurement to its original form.  Below is the function to combine the two 8-bit values to one 16-bit value.
+###### The data is transmitted over LoRaWAN to The Things Network. The data is transmitted every 25 seconds in order to minimize the amount of data and reduce the overall power draw of the system. The data rate was configured to the slowest bandwidth option (125kHz) to increase the transmission distance. The measurement data was split into two bytes since LoRa only support byte size packages/payloads, the ADC samples 12-bits of data that is stored in two bytes so the upper half of the 16-bit value was stored in a byte and the lower half is stored in another byte. Each bytes is transmitted separately, the upper byte is transmitted first, shortly followed by the lower byte. The data (payload) is stitched back together at the server by storing the upper byte in a 16-bit variable and then "oring" the lower byte into the 16-bit variable, thus returning the measurement data to its original form.  Below is the function to combine the two 8-bit values to one 16-bit value.
 
 ```js
 var Temp = (bytes[0] | bytes[1])
@@ -246,17 +246,9 @@ var Temp = (bytes[0] | bytes[1])
 
 
 
-
-
-
-
-
-
-
-
 ### Finalizing the design
 
-###### The image below shows the final housing for the LoRa temperature transmitter. The housing was designed in SolidWorks 2019, printed on an FlashForge finder (FDM 3D-printer) and was printed from the plastic type PET. The design consists of three parts, the main housing, roof and a wall mount that attaches to the backside of the housing. It was designed to resemble a small birdhouse and have a lot of "breathing" so the bottom is a honeycomb mesh to allow the same temperature on the inside as the outside ambient temperature. It was not designed to be waterproof/resistant and should be mounted indoors only.   
+###### The image below shows the final housing for the LoRa temperature transmitter. The housing was designed in SolidWorks 2019, printed on an FlashForge finder (FDM 3D-printer) and was printed from the plastic type PET. The design consists of three parts, the main housing, roof and a wall mount that attaches to the backside of the housing. It was designed to resemble a small birdhouse and have a lot of "breathing", the bottom is a open honeycomb mesh to allow the same temperature on the inside as the outside ambient temperature. It was not designed to be waterproof/resistant and should be mounted indoors only.   
 
 ![Housing](https://raw.githubusercontent.com/JoeyStrandnes/Applied-IoT-1DT305/master/Project Images/Final-Housing.jpg)
 
