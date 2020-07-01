@@ -1,6 +1,6 @@
 # Analog Temperature sensor tutorial
 
-###### This guide will show how to connect and utilize Microchip's MCP9700T analog temperature sensor with LoRaWAN, The Things Network (TTN) and Ubidots dashboard. This project is easy to setup and will take an evening to complete. Created by Joseph Strandnes (JS225PY).
+###### This guide is intended to illustrate how to connect and utilize Microchip's MCP9700T analog temperature sensor with LoRaWAN, The Things Network (TTN) and Ubidots dashboard. This project is easy to setup and will take an evening to complete. Created by Joseph Strandnes (JS225PY).
 
 
 
@@ -33,14 +33,12 @@
 
 ###### 3: The MCP9700T is a analog temperature senor with built in linearization making it easy to work with. The out of the box accuracy is +-2 degrees Celsius but can easily be compensated down to +-0.5 degrees Celsius. The cost of the sensor is ~1.7 kr, I owned it prior to the project but it can be purchased at DigiKey, Mouser, Elfa and all other online resellers.
 
-###### 4: The cables are meant to connect the external sensors to the dev board. They cost a few kr and can be purchased at most hobby stores.
 ###### 4: The cables are meant to connect the external sensors to the dev board. They cost a few kronor which can be purchased at most hobby stores.
 
 #### Optional components
 
 ###### 1: LoRa gateway functions as a router for LoRa and connects sensors via LoRa to the internet. The gateway I purchased is the Dragino LPS8 and costs ~900kr (Elfa). The gateway is a necessity if one lacks coverage from the LoRa network/TTN.
 
-###### 2: 3D-Printed case, the case can be found in the project directory for this project and was designed in SolidWorks 2019. The case makes it easy to organize all the cables and gives the finished project a sleek design. The cost for the case is a few kr.
 ###### 2: 3D-Printed case, the case can be found in this project directory and was designed in SolidWorks 2019. The case makes it easy to organize all the cables and gives the finished project a sleek design. The cost for the case is a few kronor.
 
 ###### 3: The battery allows you to operate the LOPY4 remotely without any external power. The battery can be purchased at most hobby shops for <100kronor. 
