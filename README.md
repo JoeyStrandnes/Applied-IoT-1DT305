@@ -220,7 +220,7 @@ while True:
     #Send the two bytes to the TTN server
     s.send(bytes([Upper, Lower]))
     #print(Temperature/10)
-    time.sleep(5)
+    time.sleep(25)
 ```
 
 
